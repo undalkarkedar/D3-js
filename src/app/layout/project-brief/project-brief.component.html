@@ -1,0 +1,13 @@
+<aside class="learning-panel">
+  <span class="panel-kicker">Project brief</span>
+  <p>{{ project.brief }}</p>
+
+  <div class="focus-list">
+    <span *ngFor="let item of project.focus; trackBy: trackText">{{ item }}</span>
+  </div>
+
+  <div class="resource-band">
+    <strong>Roadmap outputs</strong>
+    <span *ngFor="let item of project.outputs; trackBy: trackText">{{ item }}</span>
+  </div>
+</aside>

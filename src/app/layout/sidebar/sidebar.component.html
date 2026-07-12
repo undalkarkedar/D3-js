@@ -1,0 +1,25 @@
+<aside class="sidebar" aria-label="D3 roadmap projects">
+  <div class="brand">
+    <span class="brand-mark">D3</span>
+    <div>
+      <strong>D3.js Roadmap</strong>
+      <span>Angular visualization lab</span>
+    </div>
+  </div>
+
+  <nav class="project-nav">
+    <button
+      type="button"
+      *ngFor="let project of projects; trackBy: trackProject"
+      [class.active]="project.key === activeKey"
+      [attr.aria-current]="project.key === activeKey ? 'page' : null"
+      (click)="projectSelected.emit(project.key)"
+    >
+      <span class="project-index">{{ project.index }}</span>
+      <span class="project-copy">
+        <strong>{{ project.title }}</strong>
+        <span>{{ project.subtitle }}</span>
+      </span>
+    </button>
+  </nav>
+</aside>

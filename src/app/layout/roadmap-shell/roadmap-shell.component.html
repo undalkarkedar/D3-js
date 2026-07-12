@@ -1,0 +1,38 @@
+<div class="app-shell">
+  <app-sidebar
+    [projects]="projects"
+    [activeKey]="activeKey"
+    (projectSelected)="selectProject($event)"
+  />
+
+  <main class="workspace">
+    <app-project-summary [project]="activeProject" />
+
+    <section class="content-grid">
+      <div class="viz-panel">
+        <div class="panel-toolbar">
+          <div>
+            <span>{{ activeProject.chartLabel }}</span>
+            <strong>{{ activeProject.chartTitle }}</strong>
+          </div>
+          <button type="button" class="refresh-button" (click)="refreshChart()" aria-label="Refresh current chart">
+            Refresh
+          </button>
+        </div>
+
+        <ng-container [ngSwitch]="activeKey">
+          <app-bar-chart *ngSwitchCase="'bar'" [refreshKey]="refreshKey" />
+          <app-line-chart *ngSwitchCase="'line'" [refreshKey]="refreshKey" />
+          <app-treemap-chart *ngSwitchCase="'treemap'" [refreshKey]="refreshKey" />
+          <app-dashboard-chart *ngSwitchCase="'dashboard'" [refreshKey]="refreshKey" />
+          <app-shape-studio-chart *ngSwitchCase="'shape'" [refreshKey]="refreshKey" />
+          <app-layout-lab-chart *ngSwitchCase="'layout'" [refreshKey]="refreshKey" />
+          <app-zoom-realtime-chart *ngSwitchCase="'zoom'" [refreshKey]="refreshKey" />
+          <app-production-matrix-chart *ngSwitchCase="'production'" [refreshKey]="refreshKey" />
+        </ng-container>
+      </div>
+
+      <app-project-brief [project]="activeProject" />
+    </section>
+  </main>
+</div>

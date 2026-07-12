@@ -1,0 +1,143 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-height: 100vh;
+  padding: 24px 18px;
+  background: #171b20;
+  color: #f8fafc;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+}
+
+.brand-mark {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 8px;
+  background: #2dd4bf;
+  color: #0f172a;
+  font-weight: 900;
+}
+
+.brand strong,
+.brand span {
+  display: block;
+}
+
+.brand span:not(.brand-mark) {
+  margin-top: 3px;
+  color: #aeb8c6;
+  font-size: 0.86rem;
+}
+
+.project-nav {
+  display: grid;
+  gap: 10px;
+}
+
+.project-nav button {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  min-height: 74px;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #d6dde8;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.project-nav button:hover,
+.project-nav button:focus-visible {
+  border-color: rgba(45, 212, 191, 0.7);
+  outline: none;
+}
+
+.project-nav button.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.24), rgba(251, 146, 60, 0.18));
+  border-color: rgba(45, 212, 191, 0.9);
+  transform: translateX(2px);
+}
+
+.project-index {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 8px;
+  color: #171b20;
+  background: #f8fafc;
+  font-weight: 800;
+}
+
+.project-copy {
+  min-width: 0;
+}
+
+.project-copy strong,
+.project-copy span {
+  display: block;
+}
+
+.project-copy strong {
+  overflow: hidden;
+  color: inherit;
+  font-size: 0.96rem;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-copy span {
+  margin-top: 4px;
+  color: #9aa6b7;
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+@media (max-width: 1120px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .project-nav {
+    grid-auto-columns: minmax(172px, 1fr);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .project-nav button.active {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .brand {
+    align-items: flex-start;
+  }
+
+  .project-nav {
+    grid-auto-columns: minmax(210px, 1fr);
+    grid-template-columns: none;
+  }
+}

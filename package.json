@@ -7,7 +7,7 @@
     "start": "ng serve --host 0.0.0.0",
     "start:poll": "ng serve --host 0.0.0.0 --poll 2000",
     "build": "ng build",
-    "build:github-pages": "ng build --configuration production --base-href /d3-angular-roadmap/"
+    "build:github-pages": "ng build --configuration production --base-href /D3-js/"
   },
   "dependencies": {
     "@angular/animations": "^18.2.13",
